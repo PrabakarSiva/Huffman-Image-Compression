@@ -1,0 +1,9 @@
+C:\Users\Siva Prabakar\Docs\code\c#\huffman_img_comp\huffman_img_comp\bin\Debug\huffman_img_comp.exe.config
+C:\Users\Siva Prabakar\Docs\code\c#\huffman_img_comp\huffman_img_comp\bin\Debug\huffman_img_comp.exe
+C:\Users\Siva Prabakar\Docs\code\c#\huffman_img_comp\huffman_img_comp\bin\Debug\huffman_img_comp.pdb
+C:\Users\Siva Prabakar\Docs\code\c#\huffman_img_comp\huffman_img_comp\obj\Debug\huffman_img_comp.csprojAssemblyReference.cache
+C:\Users\Siva Prabakar\Docs\code\c#\huffman_img_comp\huffman_img_comp\obj\Debug\huffman_img_comp.Form1.resources
+C:\Users\Siva Prabakar\Docs\code\c#\huffman_img_comp\huffman_img_comp\obj\Debug\huffman_img_comp.Properties.Resources.resources
+C:\Users\Siva Prabakar\Docs\code\c#\huffman_img_comp\huffman_img_comp\obj\Debug\huffman_img_comp.csproj.GenerateResource.cache
+C:\Users\Siva Prabakar\Docs\code\c#\huffman_img_comp\huffman_img_comp\obj\Debug\huffman_img_comp.exe
+C:\Users\Siva Prabakar\Docs\code\c#\huffman_img_comp\huffman_img_comp\obj\Debug\huffman_img_comp.pdb
