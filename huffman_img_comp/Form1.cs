@@ -27,14 +27,9 @@ namespace huffman_img_comp
         {
             InitializeComponent();
             
-            richTextBox1.AllowDrop = true;
-            richTextBox1.DragDrop += RichTextBox1_DragDrop;
-
-            richTextBox2.AllowDrop = true;
-            richTextBox2.DragDrop += RichTextBox2_DragDrop;
-
         }
 
+        
         private void label1_Click(object sender, EventArgs e)
         {
             // Prompt to get file names in order to save encoded data to a file
@@ -168,11 +163,6 @@ namespace huffman_img_comp
             return sb.ToString();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
             string decoded = huffmanTree.Decode(encoded);
@@ -211,46 +201,70 @@ namespace huffman_img_comp
             Image imgFromStream = Image.FromStream(imageMemoryStream);
             pictureBox1.Image = imgFromStream;
         }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private bool GetBin(out string filename, DragEventArgs e)
         {
-            richTextBox1.AllowDrop = true;
-            richTextBox1.DragDrop += RichTextBox1_DragDrop;
+            //throw new NotImplementedException();
+            bool rtun = false;
+            filename = string.Empty;
+            if ((e.AllowedEffect & DragDropEffects.Copy) == DragDropEffects.Copy)
+            {
+                Array data = ((IDataObject)e.Data).GetData("FileDrop") as Array;
+                if (data != null)
+                {
+                    if ((data.Length == 1) && (data.GetValue(0) is string))
+                    {
+                        filename = ((string[])data)[0];
+                        string extension = Path.GetExtension(filename).ToLower();
+                        if (extension == ".bin")
+                        {
+                            rtun = true;
+                        }
+                    }
+                }
+            }
+            return rtun;
         }
 
-        private void RichTextBox1_DragDrop(object sender, DragEventArgs e)
+        private void panel2_DragEnter(object sender, DragEventArgs e)
         {
-            var data = e.Data.GetData(DataFormats.FileDrop);
-            if (data != null)
+            string filename;
+            vdata = GetBin(out filename, e);
+            if (vdata)
             {
-                var fileNames = data as string[];
-                if (fileNames.Length > 0)
-                {
-                    richTextBox1.LoadFile(fileNames[0]);
-                }
-
+                path = filename;
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
             }
         }
 
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        private void panel2_DragDrop(object sender, DragEventArgs e)
         {
-            richTextBox2.AllowDrop = true;
-            richTextBox2.DragDrop += RichTextBox2_DragDrop;
+            panel2.BackColor = Color.MediumSpringGreen;
         }
 
-        private void RichTextBox2_DragDrop(object sender, DragEventArgs e)
+        private void panel3_DragEnter(object sender, DragEventArgs e)
         {
-            var data = e.Data.GetData(DataFormats.FileDrop);
-            if (data != null)
+            string filename;
+            vdata = GetBin(out filename, e);
+            if (vdata)
             {
-                var fileNames = data as string[];
-                if (fileNames.Length > 0)
-                {
-                    richTextBox2.LoadFile(fileNames[0]);
-                }
-
+                path = filename;
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
             }
         }
+
+        private void panel3_DragDrop(object sender, DragEventArgs e)
+        {
+            panel3.BackColor = Color.MediumSpringGreen;
+        }
+
     }
 
 
