@@ -47,11 +47,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Honeydew;
-            this.label1.Location = new System.Drawing.Point(46, 60);
+            this.label1.Location = new System.Drawing.Point(51, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(285, 13);
+            this.label1.Size = new System.Drawing.Size(272, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "Drag image into the box below and press Encode\r\n";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -83,10 +83,11 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.SteelBlue;
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Honeydew;
-            this.button1.Location = new System.Drawing.Point(147, 202);
+            this.button1.Location = new System.Drawing.Point(146, 202);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -98,11 +99,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Honeydew;
-            this.label2.Location = new System.Drawing.Point(491, 60);
+            this.label2.Location = new System.Drawing.Point(497, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(219, 13);
+            this.label2.Size = new System.Drawing.Size(209, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "Drag encoded text file into box below";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -111,21 +112,21 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Honeydew;
             this.label3.Location = new System.Drawing.Point(344, 287);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 13);
+            this.label3.Size = new System.Drawing.Size(90, 15);
             this.label3.TabIndex = 7;
             this.label3.Text = "Decoded Image";
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.SteelBlue;
+            this.button2.BackColor = System.Drawing.Color.DodgerBlue;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Honeydew;
-            this.button2.Location = new System.Drawing.Point(558, 278);
+            this.button2.Location = new System.Drawing.Point(563, 278);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 5;
@@ -137,11 +138,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Honeydew;
-            this.label4.Location = new System.Drawing.Point(480, 166);
+            this.label4.Location = new System.Drawing.Point(482, 166);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(247, 13);
+            this.label4.Size = new System.Drawing.Size(235, 15);
             this.label4.TabIndex = 10;
             this.label4.Text = "Drag the tree text file into the panel below";
             // 
@@ -173,11 +174,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Honeydew;
-            this.label5.Location = new System.Drawing.Point(126, 29);
+            this.label5.Location = new System.Drawing.Point(142, 29);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 25);
+            this.label5.Size = new System.Drawing.Size(90, 26);
             this.label5.TabIndex = 13;
             this.label5.Text = "Encoding";
             // 
@@ -185,11 +186,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Honeydew;
             this.label6.Location = new System.Drawing.Point(547, 29);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(111, 25);
+            this.label6.Size = new System.Drawing.Size(92, 26);
             this.label6.TabIndex = 14;
             this.label6.Text = "Decoding";
             // 
@@ -197,7 +198,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::huffman_img_comp.Properties.Resources._7Prf6;
+            this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = global::huffman_img_comp.Properties.Resources.mio_design_assets_1tgwHteg_RZfc45SNxujAvl2cQX_bksff_darktheme_darksurfaces_grey;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label6);
