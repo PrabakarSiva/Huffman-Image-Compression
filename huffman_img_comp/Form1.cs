@@ -19,10 +19,10 @@ namespace huffman_img_comp
         string path;
         Image image;
         Thread ImageThread;
-        int[] intRepBytes;
         byte[] bytes;
-        BitArray encoded;
-        HuffmanTree huffmanTree = new HuffmanTree();
+        int[] intRepBytes;
+        string filePathEncoded;
+        string filePathTree;
         public Form1()
         {
             InitializeComponent();
@@ -37,15 +37,17 @@ namespace huffman_img_comp
             string textfilePath = Path.Combine(Environment.CurrentDirectory, @"Data\", promptValue);
 
             // Build the Huffman tree
+            HuffmanTree huffmanTree = new HuffmanTree();
             huffmanTree.Build(intRepBytes);
 
             // Encode
-            encoded = huffmanTree.Encode(intRepBytes);
+            BitArray encoded = huffmanTree.Encode(intRepBytes);
 
             // Saving to file and printing out for console output
             byte[] encodedData = new byte[encoded.Length / 8 + (encoded.Length % 8 == 0 ? 0 : 1)];
-            encoded.CopyTo(bytes, 0);
+            encoded.CopyTo(encodedData, 0);
             File.WriteAllBytes(textfilePath + ".bin", encodedData);
+            BitArray test = new BitArray(encodedData);
 
             Console.Write("Encoded Bistream: ");
             foreach (bool bit in encoded)
@@ -141,37 +143,34 @@ namespace huffman_img_comp
             }
         }
 
-        public Image byteArrayToImage(byte[] bytesArr)
-        {
-            using (MemoryStream memstr = new MemoryStream(bytesArr))
-            {
-                Image img = Image.FromStream(memstr);
-                return img;
-            }
-        }
-
-        public string ToBitString(BitArray bits)
-        {
-            var sb = new StringBuilder();
-
-            for (int i = 0; i < bits.Count; i++)
-            {
-                char c = bits[i] ? '1' : '0';
-                sb.Append(c);
-            }
-
-            return sb.ToString();
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
-            string decoded = huffmanTree.Decode(encoded);
-            //Console.WriteLine(decoded);
-            //byte[] decodedBytes = Encoding.UTF8.GetBytes(decoded);
-            //ArrayList decodeList = new ArrayList();
-            //Console.WriteLine("hello");
-            //String temp = "";
-            Console.WriteLine(decoded.Split().Length - 1);
+
+            byte[] encodedBytes = File.ReadAllBytes(filePathEncoded);
+            BitArray encodedBits = new BitArray(encodedBytes);
+
+            foreach (bool bit in encodedBits)
+            {
+                Console.Write((bit ? 1 : 0) + "");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Encoded bitstream is " + encodedBits.Length + " bits long.");
+
+            var treeBytes = File.ReadAllBytes(filePathTree);
+            var bytesInInt = new int[treeBytes.Length];
+            Console.Write("Byte stream used to build tree: ");
+            for (int a = 0; a < treeBytes.Length; a++)
+            {
+                int y = 0;
+                Int32.TryParse(treeBytes.GetValue(a).ToString(), out y);
+                bytesInInt.SetValue(y, a);
+                Console.Write(bytesInInt.GetValue(a) + " ");
+            }
+
+            HuffmanTree decodeTree = new HuffmanTree();
+            decodeTree.Build(bytesInInt);
+            string decoded = decodeTree.Decode(encodedBits);
+
             int[] decodeArray = new int[decoded.Split().Length - 1];
             String temp = "";
             int counter = 0;
@@ -197,9 +196,10 @@ namespace huffman_img_comp
             Console.WriteLine();
             byte[] bytes2 = decodeArray.Select(i => (byte)i).ToArray();
             Console.WriteLine(bytes2.Length);
-            var imageMemoryStream = new MemoryStream(bytes);
+            var imageMemoryStream = new MemoryStream(bytes2);
             Image imgFromStream = Image.FromStream(imageMemoryStream);
             pictureBox1.Image = imgFromStream;
+            
         }
         private bool GetBin(out string filename, DragEventArgs e)
         {
@@ -231,7 +231,7 @@ namespace huffman_img_comp
             vdata = GetBin(out filename, e);
             if (vdata)
             {
-                path = filename;
+                filePathEncoded = filename;
                 e.Effect = DragDropEffects.Copy;
             }
             else
@@ -243,6 +243,7 @@ namespace huffman_img_comp
         private void panel2_DragDrop(object sender, DragEventArgs e)
         {
             panel2.BackColor = Color.MediumSpringGreen;
+            
         }
 
         private void panel3_DragEnter(object sender, DragEventArgs e)
@@ -251,7 +252,7 @@ namespace huffman_img_comp
             vdata = GetBin(out filename, e);
             if (vdata)
             {
-                path = filename;
+                filePathTree = filename;
                 e.Effect = DragDropEffects.Copy;
             }
             else

@@ -118,25 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="016 Deep Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\016 Deep Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1006696" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1006696.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="7Prf6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\7Prf6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dea8c60d19e758c8744437e7b91b73c10ad0e030_2_690x387" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dea8c60d19e758c8744437e7b91b73c10ad0e030_2_690x387.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fa66d12f9e46b7d9e5de1be33d6eb8d5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fa66d12f9e46b7d9e5de1be33d6eb8d5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="linear-pink-gradient-blue-2560x1700-c2-c71585-87cefa-a-345-f-14" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\linear-pink-gradient-blue-2560x1700-c2-c71585-87cefa-a-345-f-14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mio-design-assets-1tgwHteg_RZfc45SNxujAvl2cQX_bksff-darktheme-darksurfaces-grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="mio-design-assets-1tgwHteg_RZfc45SNxujAvl2cQX_bksff-darktheme-darksurfaces-grey1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mio-design-assets-1tgwHteg_RZfc45SNxujAvl2cQX_bksff-darktheme-darksurfaces-grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

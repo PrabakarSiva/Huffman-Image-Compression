@@ -63,69 +63,9 @@ namespace huffman_img_comp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _016_Deep_Blue {
+        internal static System.Drawing.Bitmap mio_design_assets_1tgwHteg_RZfc45SNxujAvl2cQX_bksff_darktheme_darksurfaces_grey1 {
             get {
-                object obj = ResourceManager.GetObject("016 Deep Blue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _1006696 {
-            get {
-                object obj = ResourceManager.GetObject("1006696", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _7Prf6 {
-            get {
-                object obj = ResourceManager.GetObject("7Prf6", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap dea8c60d19e758c8744437e7b91b73c10ad0e030_2_690x387 {
-            get {
-                object obj = ResourceManager.GetObject("dea8c60d19e758c8744437e7b91b73c10ad0e030_2_690x387", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap fa66d12f9e46b7d9e5de1be33d6eb8d5 {
-            get {
-                object obj = ResourceManager.GetObject("fa66d12f9e46b7d9e5de1be33d6eb8d5", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap linear_pink_gradient_blue_2560x1700_c2_c71585_87cefa_a_345_f_14 {
-            get {
-                object obj = ResourceManager.GetObject("linear-pink-gradient-blue-2560x1700-c2-c71585-87cefa-a-345-f-14", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap mio_design_assets_1tgwHteg_RZfc45SNxujAvl2cQX_bksff_darktheme_darksurfaces_grey {
-            get {
-                object obj = ResourceManager.GetObject("mio-design-assets-1tgwHteg_RZfc45SNxujAvl2cQX_bksff-darktheme-darksurfaces-grey", resourceCulture);
+                object obj = ResourceManager.GetObject("mio-design-assets-1tgwHteg_RZfc45SNxujAvl2cQX_bksff-darktheme-darksurfaces-grey1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -61,18 +61,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -93,6 +93,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fa66d12f9e46b7d9e5de1be33d6eb8d5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\016 Deep Blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\linear-pink-gradient-blue-2560x1700-c2-c71585-87cefa-a-345-f-14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mio-design-assets-1tgwHteg_RZfc45SNxujAvl2cQX_bksff-darktheme-darksurfaces-grey.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
