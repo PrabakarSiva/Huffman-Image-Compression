@@ -102,11 +102,11 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Honeydew;
-            this.label2.Location = new System.Drawing.Point(497, 60);
+            this.label2.Location = new System.Drawing.Point(487, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(209, 15);
+            this.label2.Size = new System.Drawing.Size(225, 15);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Drag encoded text file into box below";
+            this.label2.Text = "Drag encoded binary file into box below";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
@@ -141,11 +141,11 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Honeydew;
-            this.label4.Location = new System.Drawing.Point(482, 169);
+            this.label4.Location = new System.Drawing.Point(473, 169);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(235, 15);
+            this.label4.Size = new System.Drawing.Size(251, 15);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Drag the tree text file into the panel below";
+            this.label4.Text = "Drag the tree binary file into the panel below";
             // 
             // panel2
             // 

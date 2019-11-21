@@ -55,6 +55,7 @@ namespace huffman_img_comp
             File.WriteAllBytes(textfilePath + ".bin", encodedData);
             BitArray test = new BitArray(encodedData);
 
+            /*
             Console.Write("Encoded Bistream: ");
             foreach (bool bit in encoded)
             {
@@ -62,6 +63,7 @@ namespace huffman_img_comp
             }
             Console.WriteLine();
             Console.WriteLine("Encoded bitstream is " + encoded.Length + " bits long.");
+            */
 
             // Saving the tree so it can be decoded later 
             promptValue += "Tree";
@@ -134,17 +136,17 @@ namespace huffman_img_comp
                 image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                 bytes = ms.ToArray();
                 intRepBytes = new int[bytes.Length];
-                Console.Write("Byte-Representation of Image: ");
+                //Console.Write("Byte-Representation of Image: ");
                 for (int i = 0; i < bytes.Length; i++)
                 {
                     int x = 0;
                     Int32.TryParse(bytes.GetValue(i).ToString(), out x);
                     intRepBytes.SetValue(x, i);
-                    Console.Write(intRepBytes.GetValue(i) + " ");
+                    //Console.Write(intRepBytes.GetValue(i) + " ");
                 }
-                Console.WriteLine();
-                Console.WriteLine("Total number of bytes in the image: " + bytes.Length);
-                Console.WriteLine("Total number of bits in the image: " + bytes.Length * 8);
+                //Console.WriteLine();
+                //Console.WriteLine("Total number of bytes in the image: " + bytes.Length);
+                //Console.WriteLine("Total number of bits in the image: " + bytes.Length * 8);
 
             }
         }
@@ -157,23 +159,14 @@ namespace huffman_img_comp
             byte[] encodedBytes = File.ReadAllBytes(filePathEncoded);
             BitArray encodedBits = new BitArray(encodedBytes);
 
-            foreach (bool bit in encodedBits)
-            {
-                Console.Write((bit ? 1 : 0) + "");
-            }
-            Console.WriteLine();
-            Console.WriteLine("Encoded bitstream is " + encodedBits.Length + " bits long.");
-
             // Read data to build tree
             var treeBytes = File.ReadAllBytes(filePathTree);
             var bytesInInt = new int[treeBytes.Length];
-            Console.Write("Byte stream used to build tree: ");
             for (int a = 0; a < treeBytes.Length; a++)
             {
                 int y = 0;
                 Int32.TryParse(treeBytes.GetValue(a).ToString(), out y);
                 bytesInInt.SetValue(y, a);
-                Console.Write(bytesInInt.GetValue(a) + " ");
             }
 
             // Build tree to decode encoded data
@@ -199,13 +192,16 @@ namespace huffman_img_comp
                     temp += c;
                 }
             }
+            /*
+            Console.Write("Decoded Bytes: ");
             foreach (var item in decodeArray)
             {
                 Console.Write(item.ToString() + " ");
             }
             Console.WriteLine();
+            */
             byte[] bytes2 = decodeArray.Select(i => (byte)i).ToArray();
-            Console.WriteLine(bytes2.Length);
+            //Console.WriteLine("Total number of bytes in the decoded image: " + bytes2.Length);
             var imageMemoryStream = new MemoryStream(bytes2);
             Image imgFromStream = Image.FromStream(imageMemoryStream);
             pictureBox1.Image = imgFromStream;
