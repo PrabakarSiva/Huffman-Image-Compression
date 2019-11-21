@@ -32,9 +32,15 @@ namespace huffman_img_comp
         
         private void label1_Click(object sender, EventArgs e)
         {
+            // Create directory to save encoded data and tree data to
+            FileInfo file = new FileInfo(Path.Combine(Environment.CurrentDirectory, @"Data\"));
+            file.Directory.Create();
+
             // Prompt to get file names in order to save encoded data to a file
             string promptValue = Prompt.ShowDialog("Please enter the name you would like to use for the generated text file.", "Filename Prompt");
             string textfilePath = Path.Combine(Environment.CurrentDirectory, @"Data\", promptValue);
+
+            panel1.BackgroundImage = null;
 
             // Build the Huffman tree
             HuffmanTree huffmanTree = new HuffmanTree();
@@ -145,7 +151,9 @@ namespace huffman_img_comp
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+            panel2.BackColor = Color.Transparent;
+            panel3.BackColor = Color.Transparent;
+            //  Read encoded data
             byte[] encodedBytes = File.ReadAllBytes(filePathEncoded);
             BitArray encodedBits = new BitArray(encodedBytes);
 
@@ -156,6 +164,7 @@ namespace huffman_img_comp
             Console.WriteLine();
             Console.WriteLine("Encoded bitstream is " + encodedBits.Length + " bits long.");
 
+            // Read data to build tree
             var treeBytes = File.ReadAllBytes(filePathTree);
             var bytesInInt = new int[treeBytes.Length];
             Console.Write("Byte stream used to build tree: ");
@@ -167,6 +176,7 @@ namespace huffman_img_comp
                 Console.Write(bytesInInt.GetValue(a) + " ");
             }
 
+            // Build tree to decode encoded data
             HuffmanTree decodeTree = new HuffmanTree();
             decodeTree.Build(bytesInInt);
             string decoded = decodeTree.Decode(encodedBits);
@@ -199,7 +209,24 @@ namespace huffman_img_comp
             var imageMemoryStream = new MemoryStream(bytes2);
             Image imgFromStream = Image.FromStream(imageMemoryStream);
             pictureBox1.Image = imgFromStream;
+
+            // Prompt to get file names in order to save encoded data to a file
+            string promptValue = Prompt.ShowDialog("Please enter the name for the decoded image.", "Name Prompt");
+
+            // Prompt to get output as either jpeg or png
+            string typeVal = Prompt.ShowOptionBox("Choose the output image type.", "Type Prompt");
             
+            if (typeVal == "jpg")
+            {
+                imgFromStream.Save(promptValue + "." + typeVal, System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+            else
+            {
+                imgFromStream.Save(promptValue + "." + typeVal);    // Default is png
+            }
+            
+
+            pictureBox1.Image = null;
         }
         private bool GetBin(out string filename, DragEventArgs e)
         {
@@ -279,7 +306,7 @@ namespace huffman_img_comp
                 Height = 150,
                 FormBorderStyle = FormBorderStyle.FixedDialog,
                 Text = caption,
-                StartPosition = FormStartPosition.CenterScreen
+                StartPosition = FormStartPosition.CenterParent
             };
             Label textLabel = new Label() { Left = 50, Top = 20, Width = 400, Text = text };
             TextBox textBox = new TextBox() { Left = 50, Top = 40, Width = 400 };
@@ -292,5 +319,30 @@ namespace huffman_img_comp
 
             return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
         }
+
+        public static string ShowOptionBox(string text, string caption)
+        {
+            Form prompt = new Form()
+            {
+                Width = 500,
+                Height = 150,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = caption,
+                StartPosition = FormStartPosition.CenterParent
+            };
+            Label textLabel = new Label() { Left = 50, Top = 20, Width = 400, Text = text };
+            Button png = new Button() { Text = "png", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.Yes };
+            Button jpg = new Button() { Text = "jpg", Left = 250, Width = 100, Top = 70, DialogResult = DialogResult.OK };
+            jpg.Click += (sender, e) => { prompt.Close(); };
+            png.Click += (sender, e) => { prompt.Close(); };
+            prompt.Controls.Add(textLabel);
+            prompt.Controls.Add(jpg);
+            prompt.Controls.Add(png);
+            prompt.AcceptButton = jpg;
+
+            return prompt.ShowDialog() == DialogResult.OK ? "jpg" : "png";
+        }
     }
+
+    
 }
