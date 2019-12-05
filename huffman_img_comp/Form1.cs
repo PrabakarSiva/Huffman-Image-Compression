@@ -15,14 +15,16 @@ namespace huffman_img_comp
 {
     public partial class Form1 : Form
     {
+        // Global variables initialized for implementation
         bool vdata;
         string path;
         Image image;
         Thread ImageThread;
-        byte[] bytes;
-        int[] intRepBytes;
-        string filePathEncoded;
-        string filePathTree;
+        byte[] bytes;           // Byte array that stores the broken down image
+        int[] intRepBytes;      // Integer array that stores the int representation of each byte
+        string filePathEncoded; // File path for the encoded image 
+        string filePathTree;    // File path for the tree data needed to decode
+
         public Form1()
         {
             InitializeComponent();
@@ -55,16 +57,6 @@ namespace huffman_img_comp
             File.WriteAllBytes(textfilePath + ".bin", encodedData);
             BitArray test = new BitArray(encodedData);
 
-            /*
-            Console.Write("Encoded Bistream: ");
-            foreach (bool bit in encoded)
-            {
-                Console.Write((bit ? 1 : 0) + "");
-            }
-            Console.WriteLine();
-            Console.WriteLine("Encoded bitstream is " + encoded.Length + " bits long.");
-            */
-
             // Saving the tree so it can be decoded later 
             promptValue += "Tree";
             textfilePath = Path.Combine(Environment.CurrentDirectory, @"Data\", promptValue);
@@ -74,6 +66,7 @@ namespace huffman_img_comp
 
         }
 
+        // Handles pointer display when object is dragged into panel
         private void panel1_DragEnter(object sender, DragEventArgs e)
         {
             string filename;
@@ -93,13 +86,12 @@ namespace huffman_img_comp
 
         private void saveimage()
         {
-            //throw new NotImplementedException();
             image = new Bitmap(path);
         }
-
+        
+        // Checks if file dragged over panel is an image file
         private bool GetImage(out string filename, DragEventArgs e)
         {
-            //throw new NotImplementedException();
             bool rtun = false;
             filename = string.Empty;
             if ((e.AllowedEffect & DragDropEffects.Copy) == DragDropEffects.Copy)
@@ -121,6 +113,7 @@ namespace huffman_img_comp
             return rtun;
         }
 
+        // Handles interaction when image file is dropped into panel
         private void panel1_DragDrop(object sender, DragEventArgs e)
         {
             // Displaying the image on the panel and returning a bitmapped byte stream of the image
@@ -134,23 +127,21 @@ namespace huffman_img_comp
                 panel1.BackgroundImage = image;
                 var ms = new MemoryStream();
                 image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                bytes = ms.ToArray();
-                intRepBytes = new int[bytes.Length];
-                //Console.Write("Byte-Representation of Image: ");
+                bytes = ms.ToArray();                                       // Saves image to byte array
+                intRepBytes = new int[bytes.Length];            
+                
+                // Converts bytes to string which is then parsed as an int
                 for (int i = 0; i < bytes.Length; i++)
                 {
                     int x = 0;
                     Int32.TryParse(bytes.GetValue(i).ToString(), out x);
                     intRepBytes.SetValue(x, i);
-                    //Console.Write(intRepBytes.GetValue(i) + " ");
                 }
-                //Console.WriteLine();
-                //Console.WriteLine("Total number of bytes in the image: " + bytes.Length);
-                //Console.WriteLine("Total number of bits in the image: " + bytes.Length * 8);
 
             }
         }
 
+        // Decode function implementation 
         private void label2_Click(object sender, EventArgs e)
         {
             panel2.BackColor = Color.Transparent;
@@ -172,11 +163,19 @@ namespace huffman_img_comp
             // Build tree to decode encoded data
             HuffmanTree decodeTree = new HuffmanTree();
             decodeTree.Build(bytesInInt);
+            
             string decoded = decodeTree.Decode(encodedBits);
-
+            
             int[] decodeArray = new int[decoded.Split().Length - 1];
             String temp = "";
             int counter = 0;
+
+            /**
+             * Process decoded string adding each char to a temp string
+             * until whitespace is reached. Whitespace signifies the end
+             * of one byte value. At whitespace, we parse string as int 
+             * and add it to int array.
+            */
             foreach (char c in decoded)
             {
                 if (Char.IsWhiteSpace(c))
@@ -192,16 +191,11 @@ namespace huffman_img_comp
                     temp += c;
                 }
             }
-            /*
-            Console.Write("Decoded Bytes: ");
-            foreach (var item in decodeArray)
-            {
-                Console.Write(item.ToString() + " ");
-            }
-            Console.WriteLine();
-            */
+
+            // Make decoded int array into a byte array
             byte[] bytes2 = decodeArray.Select(i => (byte)i).ToArray();
-            //Console.WriteLine("Total number of bytes in the decoded image: " + bytes2.Length);
+            
+            // Create image using transformed byte array
             var imageMemoryStream = new MemoryStream(bytes2);
             Image imgFromStream = Image.FromStream(imageMemoryStream);
             pictureBox1.Image = imgFromStream;
@@ -224,9 +218,10 @@ namespace huffman_img_comp
 
             pictureBox1.Image = null;
         }
+
+        // Function to make sure file input dragged into panel is binary
         private bool GetBin(out string filename, DragEventArgs e)
         {
-            //throw new NotImplementedException();
             bool rtun = false;
             filename = string.Empty;
             if ((e.AllowedEffect & DragDropEffects.Copy) == DragDropEffects.Copy)
@@ -248,6 +243,7 @@ namespace huffman_img_comp
             return rtun;
         }
 
+        // Handles pointer display when file is dragged into panel
         private void panel2_DragEnter(object sender, DragEventArgs e)
         {
             string filename;
@@ -291,7 +287,7 @@ namespace huffman_img_comp
 
     }
 
-
+    // Used to handle pop-up messages that typically ask for input
     public static class Prompt
     {
         public static string ShowDialog(string text, string caption)
